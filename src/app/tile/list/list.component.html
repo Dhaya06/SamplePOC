@@ -1,0 +1,22 @@
+<div *ngFor="let list of TileItems; let i = index">
+  <div class="row" class="setPad" *ngIf="list.type=='image' ">
+    <div class="column" style="background-color:rgb(206, 206, 206);  ">
+      <div>
+        <button style="width:90px; float: right;" class="button" (click)="CopytoClipBoard(list)">Copy to clipboard</button>
+        <img [src]="list.itemSrc" style="height:10%; float:left; width:10%">
+        <p> {{list.itemName}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" class="setPad" *ngIf="list.type=='video' ">
+    <div class="column" style="background-color:rgb(206, 206, 206);  ">
+      <div>
+        <!-- <button style="width:90px; float: right;" class="button" (click)="CopytoClipBoard(list)">Copy to clipboard</button> -->
+        <img [src]="placeHolder" style="height:10%; float:left; width:10%">
+        <p> {{list.itemName}}</p>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>

@@ -1,0 +1,30 @@
+
+<div class="topnav">
+    <a [ngClass]="{'active' : griView}"  (click)="setGrid()" href="#"><i class="fa fa-bars"></i> Home</a>
+    <a  href="#" [ngClass]="{'active' : !griView}"  (click)="setList()"> <i class="fa fa-th-large"></i> List</a>
+</div>
+
+
+
+<div class="card center" style="margin-top:1%">
+    <div style=" margin: auto; color: blue">
+        <input class="choose_button_a" type='file' (change)="readSelectedObject($event)">
+    </div>
+    <div class="container">
+        <h4><b>Select an Image</b></h4>
+        <a class="button" href="#" type="button" (click)="submitSelectedImage()">Submit</a>
+    </div>
+</div>
+
+
+<div *ngIf="griView; else listView ">
+    <div *ngIf="isTrue">
+        <tile [Items]="Items"></tile>
+    </div>
+</div>
+
+<ng-template #listView>
+        <div *ngIf="isTrue">
+                <app-list [TileItems]="Items"></app-list>
+            </div>
+</ng-template>

@@ -1,0 +1,48 @@
+
+
+
+<section class="tile-container">
+    <div *ngFor="let obj of Items; let i = index">
+        <div *ngIf="obj.type=='image' ">
+                <article class="tile" >
+                        <header class="tile__title">
+                            <h3>{{obj.itemName}}</h3>
+                        </header>
+                        <figure class="tile__thumbnail">
+                            <img [src]="obj.itemSrc">
+                        </figure>
+                        <main class="tile__description">
+                                {{obj.itemName}}
+                        </main>
+                        <button class="button" (click)="copyToClipBoard(obj)">Copy to Clipboard </button>
+        
+                    </article>
+        </div>
+
+        <div *ngIf="obj.type=='video' ">
+
+            <article class="tile">
+                <header class="tile__title">
+                    <h3>{{obj.itemName}}</h3>
+                </header>
+                <div class="tile__thumbnail">
+
+                    <video class="vidDiv" controls (click)="toggleVideo()" #videoPlayer>
+                        <source [src]="obj.itemSrc" type="video/mp4" />
+                        Browser not supported
+                    </video>
+
+                </div>
+                <main class="tile__description">
+                    URL: Lorem Ipsum dolor amet sun Lorem Ipsum dolor amet sun Lorem Ipsum dolor amet sun
+                </main>
+                <a href="#" class="button" (Click)="copyToClipBoard(obj)">Copy Video URL</a>
+
+            </article>
+
+        </div>
+
+
+    </div>
+
+</section>

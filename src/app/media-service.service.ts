@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from 'selenium-webdriver/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,7 +7,7 @@ import { Observable } from 'rxjs';
 export class MediaServiceService {
   private serviceUrl: string;
   private resourceUrl: string;
-  constructor(private http: HttpClient) {
+  constructor() {
     //TODO Should changed the service url based on environment
     this.serviceUrl = "";
   }
